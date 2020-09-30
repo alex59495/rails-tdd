@@ -1,5 +1,5 @@
 describe 'Test Double' do
-  it '--' do
+  it 'Double' do
     user = double('User')
     allow(user).to receive(:name).and_return('Jack')
     allow(user).to receive(:password).and_return('secret')

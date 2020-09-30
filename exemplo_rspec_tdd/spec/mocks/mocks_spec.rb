@@ -19,14 +19,17 @@ describe 'Mocks' do
     student.foo(123)
   end
 
-  it 'repetição' do
+  it 'count' do
     student = Student.new
-    expect(student).to receive(:foo).with(123).twice
+    expect(student).to receive(:foo).exactly(5).times
+    student.foo(123)
+    student.foo(123)
+    student.foo(123)
     student.foo(123)
     student.foo(123)
   end
 
-  it 'retorno' do
+  it 'return' do
     student = Student.new
     expect(student).to receive(:foo).with(123).and_return(true)
     puts student.foo(123)
