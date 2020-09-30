@@ -1,7 +1,6 @@
-jackson:
-  name: Jackson Pires
-  email: jackson@pires.com.br
-
+alex:
+  name: "Alex"
+  email: "alex@info.fr"
 jose:
-  name: José da Silva
-  email: jose@jose.com
+  name: "Jose da Silva"
+  email: "jose@info.fr"

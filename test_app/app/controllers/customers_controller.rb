@@ -1,5 +1,4 @@
 class CustomersController < ApplicationController
-  before_action :authenticate_member!, except: [:index, :show]
   before_action :set_customer, only: [:show, :edit, :update, :destroy]
 
   # GET /customers
@@ -68,8 +67,8 @@ class CustomersController < ApplicationController
       @customer = Customer.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
+    # Only allow a list of trusted parameters through.
     def customer_params
-      params.require(:customer).permit(:name, :email, :address)
+      params.require(:customer).permit(:name, :email)
     end
 end

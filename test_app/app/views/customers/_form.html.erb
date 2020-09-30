@@ -4,30 +4,24 @@
       <h2><%= pluralize(customer.errors.count, "error") %> prohibited this customer from being saved:</h2>
 
       <ul>
-      <% customer.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
+        <% customer.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
       </ul>
     </div>
   <% end %>
 
   <div class="field">
     <%= form.label :name %>
-    <%= form.text_field :name, id: :customer_name %>
+    <%= form.text_field :name %>
   </div>
 
   <div class="field">
     <%= form.label :email %>
-    <%= form.text_field :email, id: :customer_email %>
-  </div>
-
-  <div class="field">
-    <%= form.label :address %>
-    <%= form.text_field :address, id: :customer_address %>
+    <%= form.text_field :email %>
   </div>
 
   <div class="actions">
     <%= form.submit %>
   </div>
 <% end %>
-
