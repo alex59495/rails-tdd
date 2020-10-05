@@ -15,6 +15,9 @@ ActiveRecord::Schema.define(version: 2020_09_30_181729) do
   create_table "customers", force: :cascade do |t|
     t.string "name"
     t.string "email"
+    t.boolean "vip"
+    t.integer "days_to_pay"
+    t.string "gender"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
