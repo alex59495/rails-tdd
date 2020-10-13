@@ -38,5 +38,12 @@ RSpec.describe Customer, type: :model do
     expect(customer.vip).to eq(true)
   end
 
+  it 'travel to' do
+    travel_to Time.zone.local(2004, 11, 24, 01, 04, 44) do
+      @customer = create(:customer_vip)
+    end
+    expect(@customer.created_at).to eq(Time.new(2004, 11, 24, 01, 04, 44, '+00:00'))
+  end
+
   it { expect{create(:customer)}.to change{Customer.all.count}.by(1)}
 end

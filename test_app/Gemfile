@@ -37,6 +37,11 @@ group :development, :test do
   gem 'faker'
   # HTTParty
   gem 'httparty'
+  # Webmock
+  gem 'webmock'
+  # VCR
+  gem 'vcr'
+  gem 'shoulda-matchers'
 end
 
 group :development do
