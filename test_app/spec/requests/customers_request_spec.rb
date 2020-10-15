@@ -29,12 +29,34 @@ RSpec.describe "Customers", type: :request do
       @customer = create(:customer)
     end
 
+    it 'Content-Type' do
+      customer_params = attributes_for(:customer)
+      sign_in @member
+      get customer_path(Customer.first), params: { format: :json }
+      expect(response.content_type).to match(/application\/json/)
+    end
+
+    it 'Flash Notice' do
+      customer_params = attributes_for(:customer)
+      sign_in @member
+      post customers_path(customer: customer_params)
+      expect(flash[:notice]).to match(/successfully created/)
+    end
+
     it 'Create with valid atributes' do
       customer_params = attributes_for(:customer)
       sign_in @member
       expect {
         post customers_path(customer: customer_params)
       }.to change(Customer, :count).by(1)
+    end
+
+    it 'Invalid atributes' do
+      customer_params = attributes_for(:customer, address: nil)
+      sign_in @member
+      expect {
+        post customers_path(customer: customer_params)
+      }.not_to change(Customer, :count)
     end
 
     it 'Render template for show' do
